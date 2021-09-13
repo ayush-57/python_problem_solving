@@ -1,0 +1,182 @@
+Q] A newly opened store is offering a 15% discount on the MRP value of any product. 
+Write a program that takes the value of a product in rupees as input and outputs the price after discount.
+Ans : 
+MRP = int(input())
+output = MRP - (MRP * 15 / 100)
+print(output, end='')
+
+Q] Write a program to accept the length and breadth of a rectangle and print its area.
+Ans:
+x, y = input().split()
+d = int(x)
+e = int(y)
+a = d * e
+print(a, end='')
+
+Q] Write a program that takes 3 integers as input and prints the difference between the largest and smallest value among the three.
+Ans: 
+x, y, z = input().split()
+a = int(x)
+b = int(y)
+c = int(z)
+list = []
+list.append(a)
+list.append(b)
+list.append(c)
+print(max(list)-min(list), end='')
+
+Q] Write a program that takes 3 integers as input and checks whether they can form the sides of a right angled triangle or not. Print YES if they can form a right angled triangle. NO, otherwise.
+Ans: 
+a, b, c = list(map(int,input().split()))
+if (a*a == b*b + c*c) or (b*b == a*a + c*c) or (c*c == a*a + b*b):
+   print("YES",end='')
+else:
+   print("NO",end='')
+   
+Q] Write a program that takes a number as input and prints its factorial as output.
+Ans : 
+import math  
+def fact(n):  
+    return(math.factorial(n))    
+num = int(input())  
+f = fact(num)  
+print(f, end='') 
+
+Q] Given a list of n integers, count the number of integers in the list that are either a multiple of 3 or a multiple of 5. (All the numbers are guaranteed to be distinct).
+Ans: 
+a=list(map(float, input().split()))
+c=0
+for i in a:
+  if (i%3==0) or (i%5==0):
+    c=c+1
+print(c, end="")
+
+Q] Given a list of binary numbers (0s and 1s), determine the number of possible arrangements of distinct binary sequences using given 0s and 1s.
+Ans:
+import math
+a = input().split()
+n = math.factorial(len(a))//(math.factorial(a.count("1"))*math.factorial(a.count("0")))
+print(n, end='')
+
+Q] Given a list of integers and a value k, print the number in the list that appears exactly k times. (It is guaranteed that there’s exactly one integer that appears k times)
+Ans:
+a = input().split()
+z = int(input())
+for n in set(a):
+    if a.count(n)==z:
+        print(n, end='')
+        
+Q] Given a list of integers and a value k, print the kth largest element in the list. (All the elements in the list are guaranteed to be distinct).
+Ans:
+ar = input().split()
+x = int(input())
+ans=[]
+for i in ar:
+    ans.append(int(i))
+ans.sort()
+print(ans[x-1], end='')
+
+Q] Given a list of n integers, print a new list such that every element in the new list represents the cumulative sum of all the elements until that position.
+Ans:
+a = input().split()
+ans = []
+n=0
+for i in a:
+    n = n + int(i)
+    ans.append(n)
+print(*ans, end='')
+
+Q] Given two integers r and c, indicating the number of rows and columns, print a two-dimensional matrix such that the elements of the matrix are in an increasing sequence from 1 to rXc, in a row-major order.
+Ans:
+a,b = input().split()
+a = int(a)
+b = int(b)
+c = 1
+for i in range(1, a+1):
+  for j in range(1, b+1):
+    if j!=b:
+      print(c,"", end="")
+    else:
+      print(c, end="")
+    c=c+1
+  if i!=a:
+    print("")
+  else:
+    print("",end="")
+    
+Q] Given an integer input 'n', print a number triangle of n lines as shown in the example.
+Ans:
+n = int(input())
+for i in range(1, n+1):
+  for j in range(1, i+1):
+    print(i, end="")
+  if i!=n:
+    print("")
+  else:
+    print("", end="")
+   
+Q] Given a N X N square matrix, determine if it is a Symmetric Matrix.
+Ans:
+n = int(input())
+m = []
+f = 0
+for i in range(n):
+  m.append(input().split())
+for a in range(len(m)): 
+  for b in range(n):
+    if m[a][b]!=m[b][a]:
+      f=1
+if f==0:
+  print("Yes", end="")
+else:
+  print("No", end="")
+  
+Q] Given a matrix with M rows and N columns,  you are required to check if the matrix is a Zero-One Matrix. A Zero-One or a Binary matrix is a matrix in which all the elements are either 0 or 1.
+Ans:
+p = ['0', '1']
+flag = 0
+l, s = map(int,input().split())
+for i in range(l):
+  t = input().split()
+  for item in t:
+    if item not in p:
+      flag = 1
+if(flag):
+    print('No', end='')
+else:
+    print('Yes', end='')
+    
+Q] Given an integer input 'n', print a palindromic triangle of n lines as shown in the example.
+Ans:
+n = int(input())
+for i in range(1, n+1):
+  for j in range(1,i+1):
+    print(j, end='')
+    if i==j:
+      for k in range(i-1,0,-1):
+        print(k, end='')
+  if i!=n:
+    print("")
+    
+Q] Given a N X N square matrix, transform the Matrix into a Lower Triangular Matrix by setting all the elements except the lower triangle as zero.
+Ans:
+n = int(input())
+q = []
+a = []
+for i in range(n):
+    q.append(input().split())
+for i in range(n):
+    for j in range(0, i+1):
+        a.append(q[i][j])
+    for j in range(i+1,n):
+        a.append("0")
+s = 0
+for i in range(n):
+    for j in range(n):
+        if j!=n-1:
+            print(a[s], "", end='')
+        else:
+            print(a[s], end='')
+        s=s+1
+    if i!=n-1:
+        print("")
